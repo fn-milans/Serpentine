@@ -29,7 +29,16 @@ let package = Package(
         .executableTarget(
             name: "Serpentine",
             dependencies: ["RazerProtocol", "RazerDeviceKit"],
-            path: "Sources/Serpentine"
+            path: "Sources/Serpentine",
+            // macOS draws an app in the style of the SDK its binary says it was built with:
+            // 26 or later gets the glass toolbar and shrink-wrapped segmented controls. The
+            // window was designed in the macOS 14 style, so the binary says 14 whichever Xcode
+            // builds it, and `swift run`, `render-window` and a release all look the same.
+            // (Decision D21.)
+            linkerSettings: [
+                .unsafeFlags(["-Xlinker", "-platform_version", "-Xlinker", "macos",
+                              "-Xlinker", "14.0", "-Xlinker", "14.0"]),
+            ]
         ),
         // Hardware diagnostics, without AppKit: `swift run serpentine-cli battery`.
         .executableTarget(

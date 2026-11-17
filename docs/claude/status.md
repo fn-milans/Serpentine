@@ -1,7 +1,13 @@
 # Status
 
-As of 2026-10-24: Serpentine 0.1.0 is released, its first version (versioning restarted
-after MacRazer 0.5.0). Everything below shipped in it, under CHANGELOG's 0.1.0 section.
+As of 2026-11-17: 0.1.1 fixes how 0.1.0 looked once downloaded. The Release workflow's Xcode
+stamped the binary SDK 26.2, so macOS drew the glass toolbar and shrink-wrapped segmented
+controls the window wasn't designed with; every build is now stamped 14.0 and CI and
+`build-app.sh` check it (D21). The title bar's always-on green check is gone (status shows
+only on a failure), and the scroll wheel's settings are no longer repeated in Buttons.
+
+Serpentine 0.1.0 (2026-10-24) was its first version (versioning restarted after MacRazer
+0.5.0). Everything below shipped in it, under CHANGELOG's 0.1.0 section.
 
 ## Done in this round
 
@@ -54,5 +60,5 @@ dongle and over Bluetooth:
 - **Preview data**: `render-window zones` shows "Couldn't read the profiles" because the V4 Pro
   preview has no slots loaded. Give `setPreviewZonedLighting` slots if that matters.
 - **About** is still the small glass window; it could become the standard About panel.
-- **Release**: the next one is `./Scripts/release.sh 0.2.0`, review, commit, then run the
+- **Release**: the next one is `./Scripts/release.sh 0.2.0` (or a 0.1.x fix), review, commit, then run the
   Release workflow (Actions → Release). See [workflows.md](workflows.md).

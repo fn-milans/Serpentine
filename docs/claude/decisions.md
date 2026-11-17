@@ -111,3 +111,12 @@ hairline on top. System materials, no custom blur.
 windows (no Screen Recording grant), and AppleScript UI scripting hangs on a permission prompt.
 `render-window` and `render-ui` draw the real views offscreen; snapshot tests render every
 preview scene.
+
+**D21. The binary says it was built with the macOS 14 SDK.** macOS draws an app in the style
+of the SDK its binary names. 0.1.0 was designed and checked on builds stamped 14.0 (this Mac's
+`xcode-select` points at the Command Line Tools, whose SDK is missing), but the Release
+workflow's Xcode stamped 26.2, so the downloaded app got the glass toolbar (a capsule per item)
+and shrink-wrapped segmented controls, which the user rejected. `UIDesignRequiresCompatibility`
+only works up to SDK 26, so `Package.swift` passes `-platform_version macos 14.0 14.0` to the
+linker for the app: every build, local or CI, any Xcode, looks the same. Check with
+`vtool -show-build <binary>` (`sdk 14.0`). Moving to the new style is a redesign with the user.

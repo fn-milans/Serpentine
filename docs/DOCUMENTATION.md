@@ -224,7 +224,9 @@ A normal Mac app (Dock icon, menus), one main window (`MainWindowController`, fr
 remembered) on the popover's glass (`AppearanceSettings.track`). The title bar follows the
 HIG's layout: the window buttons and the title (or a back button and the detail's title) at
 the leading edge; a warning when a change didn't reach the mouse (nothing while all is
-saved), the profile menu, Refresh (⌘R) and the Settings cog (⌘,) at the trailing edge.
+saved), the profile menu, Refresh (⌘R) and the Settings cog (⌘,) at the trailing edge. The
+binary is linked as built with the macOS 14 SDK (`Package.swift`), so macOS draws it in the
+style it was designed in, not the glass toolbar of apps built with SDK 26 or later.
 
 - **Dashboard** (`Dashboard.swift`): the mouse across the top (`DeviceTile`: the model, its
  link, the battery as a ring, the time left and Battery History), then a tile per setting the

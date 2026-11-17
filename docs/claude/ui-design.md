@@ -1,6 +1,6 @@
 # UI design
 
-The rules the window follows, from the rounds of design with the user (decisions D10-D19).
+The rules the window follows, from the rounds of design with the user (decisions D10-D21).
 Change them with the user, not silently.
 
 ## Window

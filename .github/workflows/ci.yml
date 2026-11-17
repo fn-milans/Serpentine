@@ -54,6 +54,11 @@ jobs:
       - name: Build universal release
         run: |
           swift build -c release --arch arm64 --arch x86_64
-          lipo "$(swift build -c release --arch arm64 --arch x86_64 --show-bin-path)/Serpentine" -verify_arch arm64 x86_64
+          bin="$(swift build -c release --arch arm64 --arch x86_64 --show-bin-path)/Serpentine"
+          lipo "${bin}" -verify_arch arm64 x86_64
+          # macOS draws the app in the style of the SDK the binary names (decision D21): it
+          # must say 14.0 for both architectures, or the release won't look like the design.
+          [ "$(vtool -show-build "${bin}" | grep -c 'sdk 14.0')" = 2 ] || {
+            vtool -show-build "${bin}"; echo "::error::The app binary isn't stamped SDK 14.0"; exit 1; }
       - name: Test
         run: swift test

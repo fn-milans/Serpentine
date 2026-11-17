@@ -7,6 +7,10 @@ expect rough edges until 1.0.
 ## [Unreleased]
 
 ### Fixed
+- **The window looks as designed again in the downloaded app.** 0.1.0's DMG was built with a
+  newer Xcode than the one the window was designed with, so macOS drew it in its new style:
+  the title bar's controls each in a glass capsule and the tiles' segmented controls shrunk to
+  their labels. Serpentine now draws the same whichever Xcode builds it.
 - **No more checkmark in the title bar.** The green mark beside the profile menu meant "saved
   in the mouse", which is the normal state and needs no mark. The title bar now only shows
   something when a change didn't reach the mouse ("Not all saved", "Profile not applied"),

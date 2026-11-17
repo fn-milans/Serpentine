@@ -46,6 +46,13 @@ if [[ "${BIN_ARCHS}" != *" arm64 "* || "${BIN_ARCHS}" != *" x86_64 "* ]]; then
     echo "✗ ${BIN} is not universal: $(lipo -archs "${BIN}")" >&2
     exit 1
 fi
+# macOS draws the app in the style of the SDK the binary names; Package.swift makes it say
+# 14.0 so every build looks as designed (docs/claude/decisions.md, D21).
+if [ "$(vtool -show-build "${BIN}" | grep -c 'sdk 14.0')" != 2 ]; then
+    echo "✗ ${BIN} isn't stamped SDK 14.0, so it would draw in a style it wasn't designed for:" >&2
+    vtool -show-build "${BIN}" >&2
+    exit 1
+fi
 
 echo "▸ Assembling ${APP}…"
 rm -rf "${APP}"

@@ -91,7 +91,7 @@ Ask the user first, every time. A release publishes a DMG people download.
 
 ## CI
 
-`.github/workflows/ci.yml` on every push to main and every PR, on macos-15: `bash -n` and
+`.github/workflows/ci.yml` on every push to main and every PR, on macos-26: `bash -n` and
 `shellcheck -S error` over the scripts, the three script tests, `swift build`, a universal
 release build checked with `lipo`, `swift test`. Nothing in CI touches hardware.
 

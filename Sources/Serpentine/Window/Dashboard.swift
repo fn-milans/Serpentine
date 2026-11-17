@@ -143,7 +143,7 @@ struct Dashboard: View {
             .disabled(!controller.connected)
         case .scroll:
             Tile(title: "Scroll Wheel", symbol: "arrow.up.and.down.circle", tint: .teal) {
-                MouseSwitchesSection(controller: controller, inTile: true)
+                MouseSwitchesSection(controller: controller)
             }
             .disabled(!controller.connected)
         }

@@ -6,6 +6,11 @@ expect rough edges until 1.0.
 
 ## [Unreleased]
 
+### Fixed
+- **The scroll wheel's settings appear once.** Smart-Reel, its sensitivity and scroll
+  acceleration were in the Scroll Wheel tile and again in the Buttons column; they're only in
+  the tile now.
+
 ## [0.1.0] — 2026-10-24
 
 ### Changed

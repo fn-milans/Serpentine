@@ -56,7 +56,6 @@ struct RemapView: View {
                     recordingDpiCycleShortcut = true
                 }
             }
-            if let controller { MouseSwitchesSection(controller: controller) }
             if remapper.isBasiliskV3XHyperSpeed { basiliskButtonLimits }
             footer
         }
@@ -432,14 +431,12 @@ struct RemapView: View {
     }
 }
 
-/// The mouse's own switches, grouped in one box like the button list, each once the mouse has
+/// The wheel's own switches, the Scroll Wheel tile's controls, each once the mouse has
 /// reported it: Smart-Reel on the wheels Serpentine knows (`RazerDevices.hasWheelControls`) and
 /// its sensitivity (`RazerDevices.hasSmartReelSensitivity`), and scroll acceleration with its
 /// level (`RazerDevices.hasScrollAcceleration`). A level shows while its switch is on.
 struct MouseSwitchesSection: View {
     @ObservedObject var controller: MouseController
-    /// Inside a tile, which draws the frame: no box of its own.
-    var inTile = false
 
     var body: some View {
         let reel = controller.smartReel
@@ -466,7 +463,6 @@ struct MouseSwitchesSection: View {
                     }
                 }
             }
-            .background(inTile ? Color.clear : Color.primary.opacity(0.05), in: RoundedRectangle(cornerRadius: 10))
         }
     }
 

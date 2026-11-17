@@ -28,7 +28,9 @@ concurrency:
 
 jobs:
   release:
-    runs-on: macos-26
+    # Intel: GitHub's Apple Silicon pool is short of machines for free public repos, and jobs
+    # there sat queued until GitHub gave up on them. The universal build makes both halves here.
+    runs-on: macos-26-intel
     permissions:
       contents: write # the draft release; unused without it
     steps:

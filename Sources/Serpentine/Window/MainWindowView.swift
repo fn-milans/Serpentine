@@ -95,22 +95,21 @@ struct MainWindowView: View {
 
     // MARK: Toolbar
 
-    /// Whether what was last changed reached the mouse.
+    /// Only when what was last changed didn't reach the mouse, with its words: a toolbar shows a
+    /// label's icon alone, and a lone mark there reads as nothing. All saved shows nothing.
     @ViewBuilder
     private var syncStatus: some View {
         if controller.connected {
             if controller.profileApplyFailed {
                 Label("Profile not applied", systemImage: "exclamationmark.triangle.fill")
+                    .labelStyle(.titleAndIcon)
                     .foregroundStyle(Color.batteryLow)
                     .help("Couldn't apply that profile. The mouse isn't responding.")
             } else if let error = controller.onboardWriteError {
                 Label("Not all saved", systemImage: "exclamationmark.triangle.fill")
+                    .labelStyle(.titleAndIcon)
                     .foregroundStyle(Color.batteryMid)
                     .help(error)
-            } else {
-                Label("In the mouse", systemImage: "checkmark.circle.fill")
-                    .foregroundStyle(Color.razerGreenText)
-                    .help("The mouse holds these settings itself.")
             }
         }
     }

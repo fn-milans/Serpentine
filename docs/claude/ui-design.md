@@ -14,10 +14,11 @@ Change them with the user, not silently.
 
 | Leading | Trailing |
 |---|---|
-| Window buttons, then **Serpentine** (or ‹ and the detail's title) | Status mark · Profile menu · Refresh · Settings cog |
+| Window buttons, then **Serpentine** (or ‹ and the detail's title) | Status (only on a failure) · Profile menu · Refresh · Settings cog |
 
-- **Status mark**: green check "In the mouse"; amber "Not all saved" when an onboard write
-  failed (hover for the error); red "Profile not applied" after a failed apply.
+- **Status**: nothing while everything is saved (a lone green check there read as nothing).
+  Amber "Not all saved" when an onboard write failed (hover for the error); red "Profile not
+  applied" after a failed apply. Always icon and words: a toolbar shows a label's icon alone.
 - **Profile menu**: label is the profile in use. Items: the profiles (the mouse's slots, or
   saved profiles) with the active one ticked, then Manage Profiles… (a sheet). Nothing else.
 - No tabs, no centred items.

@@ -7,6 +7,10 @@ expect rough edges until 1.0.
 ## [Unreleased]
 
 ### Fixed
+- **No more checkmark in the title bar.** The green mark beside the profile menu meant "saved
+  in the mouse", which is the normal state and needs no mark. The title bar now only shows
+  something when a change didn't reach the mouse ("Not all saved", "Profile not applied"),
+  in words.
 - **The scroll wheel's settings appear once.** Smart-Reel, its sensitivity and scroll
   acceleration were in the Scroll Wheel tile and again in the Buttons column; they're only in
   the tile now.

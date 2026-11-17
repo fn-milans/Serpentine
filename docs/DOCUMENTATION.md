@@ -223,8 +223,8 @@ its own USB product string** (works for any Razer mouse); the registry only adds
 A normal Mac app (Dock icon, menus), one main window (`MainWindowController`, frame
 remembered) on the popover's glass (`AppearanceSettings.track`). The title bar follows the
 HIG's layout: the window buttons and the title (or a back button and the detail's title) at
-the leading edge; the status mark (whether the mouse holds what was set), the profile menu,
-Refresh (⌘R) and the Settings cog (⌘,) at the trailing edge.
+the leading edge; a warning when a change didn't reach the mouse (nothing while all is
+saved), the profile menu, Refresh (⌘R) and the Settings cog (⌘,) at the trailing edge.
 
 - **Dashboard** (`Dashboard.swift`): the mouse across the top (`DeviceTile`: the model, its
  link, the battery as a ring, the time left and Battery History), then a tile per setting the
@@ -241,8 +241,8 @@ Refresh (⌘R) and the Settings cog (⌘,) at the trailing edge.
  (`NavigationStack`, `WindowRoute`). The colour wheel opens as a sheet.
 - **Profiles** are in the title bar (`ProfileMenu`): the one in use is the label; the menu
  switches, and Manage Profiles… opens a sheet to add (a new slot, or the current setup saved),
- rename, reset to factory (slots) and delete. A failed apply turns the status mark into a
- warning.
+ rename, reset to factory (slots) and delete. A failed apply shows "Profile not applied"
+ beside it.
 - **Settings** (`SettingsView`, from the cog): background mode, start at login, connection
  sounds, theme and glass, in a sheet.
 - **Setup**: Input Monitoring and Accessibility in a sheet (`PermissionsView`), opened at

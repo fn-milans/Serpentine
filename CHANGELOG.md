@@ -6,6 +6,8 @@ expect rough edges until 1.0.
 
 ## [Unreleased]
 
+## [0.1.1] — 2026-11-17
+
 ### Fixed
 - **The window looks as designed again in the downloaded app.** 0.1.0's DMG was built with a
   newer Xcode than the one the window was designed with, so macOS drew it in its new style:
